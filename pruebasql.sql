@@ -5,4 +5,6 @@
 
 SELECT * from usuario where correo='' OR 1=1 -- ' && contraseña='';
 
+-- en el formulario de 
+', 'img', (SELECT email FROM usuarios WHERE idUsuario = 1), 300) -- 
 

